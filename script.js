@@ -23,6 +23,7 @@ function hueFromId(id) {
 
 function displayBooks() {
   const container = document.getElementById("books-container");
+  container.replaceChildren();
 
   myLibrary.forEach((book) => {
     const card = document.createElement("div");
@@ -49,10 +50,30 @@ function displayBooks() {
 addBookToLibrary("The Hobbit", "J.R.R. Tolkien", 295, true);
 addBookToLibrary("Dune", "Frank Herbert", 412, false);
 addBookToLibrary("Neuromancer", "William Gibson", 271, false);
-console.log(myLibrary);
 displayBooks();
 
-const newBookButton = document.getElementById("new-book-button");
-newBookButton.addEventListener("click", () => {
-  // TODO: Implement form to add new book
+const bookDialog = document.getElementById("book-dialog");
+const bookForm = document.getElementById("book-form");
+
+document.getElementById("new-book-button").addEventListener("click", () => {
+  bookDialog.showModal();
+});
+
+document.getElementById("cancel-button").addEventListener("click", () => {
+  bookDialog.close();
+});
+
+bookForm.addEventListener("submit", (event) => {
+  event.preventDefault();
+
+  addBookToLibrary(
+    document.getElementById("title").value,
+    document.getElementById("author").value,
+    Number(document.getElementById("pages").value),
+    document.getElementById("read").checked,
+  );
+
+  displayBooks();
+  bookForm.reset();
+  bookDialog.close();
 });

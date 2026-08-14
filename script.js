@@ -46,13 +46,13 @@ function displayBooks() {
   });
 }
 
-const newBookButton = document.getElementById("new-book-button");
-newBookButton.addEventListener("click", () => {
-  console.log("New book button clicked");
-});
-
 addBookToLibrary("The Hobbit", "J.R.R. Tolkien", 295, true);
 addBookToLibrary("Dune", "Frank Herbert", 412, false);
 addBookToLibrary("Neuromancer", "William Gibson", 271, false);
 console.log(myLibrary);
 displayBooks();
+
+const newBookButton = document.getElementById("new-book-button");
+newBookButton.addEventListener("click", () => {
+  // TODO: Implement form to add new book
+});

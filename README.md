@@ -24,9 +24,7 @@ This is an implementation of The Odin Project's Library assignment.
 | `script.js`  | Data model and all rendering / event logic                      |
 | `style.css`  | Card, header, and dialog styling                                |
 
-## How it works
-
-### Data model
+## Basics
 
 Books are plain objects created by a `Book` constructor and pushed into a single
 `myLibrary` array. Every book is assigned a unique id by `crypto.randomUUID()`
